@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="hero">
+    <img src="{{ url_for('static', filename='images/hero-bg.jpg') }}" alt="Ресторанний комплекс">
+    <div class="hero-text">
+        <h2>Ласкаво просимо до ODESA STREET FOOD!</h2>
+        <p>Справжній смак Одеси у серці Хаджибейського району.</p>
+    </div>
+</section>
+
+<section class="map-section">
+    <h2>Ми знаходимось тут:</h2>
+    <div class="map-container">
+        NEN
+    </div>
+</section>
+
+<section class="restaurants-preview">
+    <h2>Наші заклади</h2>
+    <div class="restaurant-cards">
+        <div class="card">
+            <img src="{{ url_for('static', filename='images/pizza.jpg') }}" alt="Піцерія">
+            <h3>Піцерія</h3>
+            <a href="{{ url_for('pizzeria') }}">Детальніше</a>
+        </div>
+        <!-- Інші заклади -->
+    </div>
+</section>
+{% endblock %}

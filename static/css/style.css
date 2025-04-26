@@ -1,0 +1,21 @@
+/* Додайте ці стилі до існуючих */
+.map-section {
+    padding: 2rem;
+    text-align: center;
+}
+
+.map-container {
+    width: 100%;
+    height: 500px;
+    margin: 0 auto;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* Адаптація мапи для мобільних */
+@media (max-width: 768px) {
+    .map-container {
+        height: 300px;
+    }
+}

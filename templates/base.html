@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}ODESA STREET FOOD{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    {{ map_css|safe if map_css }}
+</head>
+<body>
+    <header>
+        <h1>ODESA STREET FOOD</h1>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('index') }}">Головна</a></li>
+                <li><a href="{{ url_for('pizzeria') }}">Заклади</a></li>
+                <li><a href="{{ url_for('news') }}">Новини</a></li>
+                <li><a href="{{ url_for('contacts') }}">Контакти</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <p>&copy; {{ now.year }} ODESA STREET FOOD</p>
+    </footer>
+
+    {{ map_js|safe if map_js }}
+</body>
+</html>
