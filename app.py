@@ -5,9 +5,7 @@ import folium
 
 app = Flask(__name__)
 
-
-@app.route('/')
-def index():
+def location():
     # Координати ресторанного комплексу
     latitude = 46.4825
     longitude = 30.7233
@@ -27,9 +25,10 @@ def index():
     ).add_to(odessa_map)
 
     # Генерація HTML для мапи
-    map_html = odessa_map._repr_html_()
-
-    return render_template("index.html", now=datetime.now(), map_html=map_html)
+    return odessa_map._repr_html_()
+@app.route('/')
+def index():
+    return render_template("index.html", now=datetime.now(), map_html=location())
 
 @app.route('/news')
 def news():
@@ -37,7 +36,7 @@ def news():
 
 @app.route('/contacts')
 def contacts():
-    return render_template('contacts.html')
+    return render_template('contacts.html', map_html=location())
 
 @app.route('/restaurants')
 def restaurants():

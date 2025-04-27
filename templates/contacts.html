@@ -1,10 +1,88 @@
 {% extends "base.html" %}
 
-{% block content %}
+{% block title %}Контакти | ODESA STREET FOOD{% endblock %}
 
-<section>
-<div>
-    <h1>Contacts</h1>
-</div>
+{% block content %}
+<section class="contacts-header">
+    <h1>Наші контакти</h1>
+    <p>Ми завжди раді вашому дзвінку чи візиту</p>
+</section>
+
+<section class="contact-info">
+    <div class="container">
+        <div class="contact-card">
+            <div class="contact-icon">
+                <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <h3>Адреса</h3>
+            <p>м. Одеса, Хаджибейський район, вул. Степовій, 15</p>
+            <p>(між вул. Прохорівська та Михайлівською площею)</p>
+        </div>
+
+        <div class="contact-card">
+            <div class="contact-icon">
+                <i class="fas fa-phone"></i>
+            </div>
+            <h3>Телефони</h3>
+            <p>+380 (12) 345-6789 (бронювання)</p>
+            <p>+380 (98) 765-4321 (доставка)</p>
+        </div>
+
+        <div class="contact-card">
+            <div class="contact-icon">
+                <i class="fas fa-envelope"></i>
+            </div>
+            <h3>Email</h3>
+            <p>info@odesastreetfood.com</p>
+            <p>reservations@odesastreetfood.com</p>
+        </div>
+    </div>
+</section>
+
+<section class="working-hours">
+    <div class="container">
+        <h2>Години роботи</h2>
+        <div class="hours-grid">
+            <div class="day">
+                <span>Понеділок - Четвер</span>
+                <span>11:00 - 23:00</span>
+            </div>
+            <div class="day">
+                <span>П'ятниця - Субота</span>
+                <span>11:00 - 00:00</span>
+            </div>
+            <div class="day">
+                <span>Неділя</span>
+                <span>11:00 - 23:00</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="contact-form">
+    <div class="container">
+        <h2>Напишіть нам</h2>
+        <form action="#" method="post">
+            <div class="form-group">
+                <input type="text" name="name" placeholder="Ваше ім'я" required>
+            </div>
+            <div class="form-group">
+                <input type="email" name="email" placeholder="Ваш email" required>
+            </div>
+            <div class="form-group">
+                <textarea name="message" placeholder="Ваше повідомлення" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Надіслати</button>
+        </form>
+    </div>
+</section>
+
+<section class="map-section">
+    <div class="container">
+        <h2>Ми на мапі</h2>
+        <div class="map-container">
+            {{ map_html|safe }}
+        </div>
+    </div>
 </section>
 {% endblock %}
