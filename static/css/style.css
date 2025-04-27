@@ -193,15 +193,171 @@ footer p {
     margin: 0;
 }
 
+.restaurant-header {
+    position: relative;
+    height: 400px;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.header-overlay {
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 2rem;
+    border-radius: 8px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.restaurant-header h1 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    color: #ff8c00;
+}
+
+.restaurant-header p {
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.menu-section {
+    padding: 3rem 0;
+    background-color: #fff;
+}
+
+.menu-section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+.menu-category {
+    margin-bottom: 4rem;
+}
+
+.menu-category h3 {
+    color: #ff8c00;
+    border-bottom: 2px solid #ff8c00;
+    padding-bottom: 0.5rem;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+}
+
+.menu-items {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.menu-item {
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 1.5rem;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.menu-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.item-header h4 {
+    margin: 0;
+    font-size: 1.25rem;
+}
+
+.price {
+    color: #ff8c00;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.menu-item p {
+    margin: 0.5rem 0 1rem 0;
+    font-size: 1rem;
+    color: #555;
+}
+
+.menu-item img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+.restaurant-info {
+    background-color: #f8f5f2;
+    padding: 3rem 0;
+}
+
+.info-block {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+
+.info-block h3 {
+    color: #ff8c00;
+    margin-bottom: 1rem;
+    font-size: 1.75rem;
+}
+
+.info-block ul {
+    list-style-type: disc;
+    padding-left: 1.5rem;
+}
+
+.info-block ul li {
+    margin-bottom: 0.5rem;
+    color: #555;
+}
+
 /* Адаптація для мобільних */
 @media (max-width: 768px) {
     nav ul {
         gap: 1rem;
     }
 
+    .hero {
+        height: 300px; /* Фіксована висота для мобільних */
+    }
+
     .hero-text {
-        width: 90%;
-        padding: 1rem;
+        width: 95%; /* Більше ширини, щоб краще вписати текст */
+        padding: 1rem; /* Менші відступи */
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .hero-text h2 {
+        font-size: 1.5rem !important; /* Менший розмір шрифту */
+        margin-bottom: 0.5rem;
+    }
+
+    .hero-text p {
+        font-size: 1rem !important; /* Менший розмір шрифту */
     }
 
     .map-container {
@@ -209,6 +365,18 @@ footer p {
     }
 
     .restaurant-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .restaurant-header {
+        height: 300px;
+    }
+
+    .restaurant-header h1 {
+        font-size: 2rem;
+    }
+
+    .menu-items {
         grid-template-columns: 1fr;
     }
 }
