@@ -31,20 +31,22 @@ def index():
 
     return render_template("index.html", now=datetime.now(), map_html=map_html)
 
+@app.route('/news')
+def news():
+    return render_template('news.html')
+
+@app.route('/contacts')
+def contacts():
+    return render_template('contacts.html')
+
+@app.route('/restaurants')
+def restaurants():
+    return render_template('restaurants.html')
 
 @app.route('/restaurants/pizzeria')
 def pizzeria():
     return render_template('restaurants/pizzeria.html')
 
-
-@app.route('/news')
-def news():
-    return render_template('news.html')
-
-
-@app.route('/contacts')
-def contacts():
-    return render_template('contacts.html')
 
 
 if __name__ == '__main__':

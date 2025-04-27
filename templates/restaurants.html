@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block title %}Наші заклади | ODESA STREET FOOD{% endblock %}
+
+{% block content %}
+<section class="restaurants-header">
+    <h1>Наші заклади</h1>
+    <p>Всі концепції харчування в одному місці</p>
+</section>
+
+<section class="all-restaurants">
+    <div class="container">
+        <div class="restaurant-card">
+            <div class="restaurant-image">
+                <img src="{{ url_for('static', filename='images/pizza.jpg') }}" alt="Піцерія">
+            </div>
+            <div class="restaurant-info">
+                <h2>Піцерія</h2>
+                <p>Справжня італійська піца з одеським характером. Тонке тісто, якісні інгредієнти та дров'яна піч.</p>
+                <a href="{{ url_for('pizzeria') }}" class="btn">Перейти до меню</a>
+            </div>
+        </div>
+
+        <div class="restaurant-card">
+            <div class="restaurant-image">
+                <img src="{{ url_for('static', filename='images/bistro.jpg') }}" alt="Бістро">
+            </div>
+            <div class="restaurant-info">
+                <h2>Бістро</h2>
+                <p>Швидке та смачне харчування для справжніх міських жителів. Свіжі салати, сендвічі та гарячі страви.</p>
+                <a href="#" class="btn">Перейти до меню</a>
+            </div>
+        </div>
+
+        <div class="restaurant-card">
+            <div class="restaurant-image">
+                <img src="{{ url_for('static', filename='images/grill.jpg') }}" alt="Гриль-бар">
+            </div>
+            <div class="restaurant-info">
+                <h2>Гриль-бар</h2>
+                <p>М'ясні спеціалітети на будь-який смак. Ароматні стейки, реберця та авторські соуси.</p>
+                <a href="#" class="btn">Перейти до меню</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
