@@ -82,12 +82,24 @@ main {
     left: 50%;
     transform: translate(-50%, -50%);
     color: white;
-    background: rgba(0, 0, 0, 0.7);
-    padding: 1.5rem;
+    background: rgba(0, 0, 0, 0.7); /* Сделаем чуть более прозрачно */
+    padding: 2rem;
     border-radius: 8px;
-    width: 80%;
+    width: 90%;
     max-width: 800px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    text-align: center;
 }
+
+.hero-text h2 {
+    margin-bottom: 1rem;
+    font-size: 2rem;
+}
+
+.hero-text p {
+    font-size: 1.2rem;
+}
+
 
 /* Секція з мапою */
 .map-section {

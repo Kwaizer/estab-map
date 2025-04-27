@@ -8,13 +8,20 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    # Створення мапи Одеси
-    odessa_map = folium.Map(location=[46.4825, 30.7233], zoom_start=14)
+    # Координати ресторанного комплексу
+    latitude = 46.4825
+    longitude = 30.7233
 
-    # Додавання маркеру для ресторанного комплексу
+    # Створення карти
+    odessa_map = folium.Map(location=[latitude, longitude], zoom_start=13)
+
+    # Створення HTML-посилання
+    popup_html = f'<a href="https://www.google.com/maps?q={latitude},{longitude}" target="_blank">Відкрити в Google Maps</a>'
+
+    # Додавання маркеру
     folium.Marker(
-        location=[46.4825, 30.7233],
-        popup="ODESA STREET FOOD",
+        location=[latitude, longitude],
+        popup=folium.Popup(popup_html, max_width=300),
         tooltip="Хаджибейський район",
         icon=folium.Icon(color="red", icon="cutlery")
     ).add_to(odessa_map)
@@ -22,7 +29,7 @@ def index():
     # Генерація HTML для мапи
     map_html = odessa_map._repr_html_()
 
-    return render_template("index.html", now=datetime.now())
+    return render_template("index.html", now=datetime.now(), map_html=map_html)
 
 
 @app.route('/restaurants/pizzeria')
