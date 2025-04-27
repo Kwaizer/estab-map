@@ -1,10 +1,42 @@
 {% extends "base.html" %}
 
-{% block content %}
+{% block title %}Новини | ODESA STREET FOOD{% endblock %}
 
-<section>
-<div>
-    <h1>News</h1>
-</div>
+{% block content %}
+<section class="news-header">
+    <h1>Новини та події</h1>
+    <p>Актуальні події та оновлення в нашому комплексі</p>
+</section>
+
+<section class="news-list">
+    <div class="container">
+        {% for item in news_items %}
+        <article class="news-item">
+            <div class="news-image">
+                <img src="{{ url_for('static', filename='images/news/' + item.image) }}" alt="{{ item.title }}">
+            </div>
+            <div class="news-content">
+                <div class="news-meta">
+                    <span class="news-date">{{ item.date }}</span>
+                </div>
+                <h2>{{ item.title }}</h2>
+                <p>{{ item.content }}</p>
+                <a href="#" class="read-more">Читати далі →</a>
+            </div>
+        </article>
+        {% endfor %}
+    </div>
+</section>
+
+<section class="subscribe">
+    <div class="container">
+        <h2>Підпишіться на наші новини</h2>
+        <form action="#" method="post">
+            <div class="form-group">
+                <input type="email" name="email" placeholder="Ваш email" required>
+                <button type="submit" class="submit-btn">Підписатися</button>
+            </div>
+        </form>
+    </div>
 </section>
 {% endblock %}
