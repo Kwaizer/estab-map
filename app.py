@@ -26,46 +26,47 @@ def location():
 
     # Генерація HTML для мапи
     return odessa_map._repr_html_()
+
+# Приклад даних новин (можна замінити на дані з БД)
+news_items = [
+    {
+        'title': 'Фестиваль вуличної їжі',
+        'date': '15 травня 2023',
+        'content': 'Запрошуємо на великий фестиваль вуличної їжі, де вас чекають смачні страви з усього світу, жива музика та майстер-класи від наших шеф-кухарів.',
+        'image': 'food-festival.jpg'
+    },
+    {
+        'title': 'Нове меню в піцерії',
+        'date': '28 квітня 2023',
+        'content': 'Ми оновили наше меню! Спробуйте нові авторські піци з сезонними інгредієнтами та особливими соусами власного приготування.',
+        'image': 'new-menu.jpg'
+    },
+    {
+        'title': 'Літній майданчик',
+        'date': '1 травня 2023',
+        'content': 'Відкрилися наші літні майданчики з чудовим видом на море. Ідеальне місце для вечірніх зустрічей з друзями.',
+        'image': 'summer-terrace.jpg'
+    }
+]
 @app.route('/')
 def index():
     return render_template("index.html", now=datetime.now(), map_html=location())
 
 @app.route('/news')
 def news():
-    # Приклад даних новин (можна замінити на дані з БД)
-    news_items = [
-        {
-            'title': 'Фестиваль вуличної їжі',
-            'date': '15 травня 2023',
-            'content': 'Запрошуємо на великий фестиваль вуличної їжі, де вас чекають смачні страви з усього світу, жива музика та майстер-класи від наших шеф-кухарів.',
-            'image': 'food-festival.jpg'
-        },
-        {
-            'title': 'Нове меню в піцерії',
-            'date': '28 квітня 2023',
-            'content': 'Ми оновили наше меню! Спробуйте нові авторські піци з сезонними інгредієнтами та особливими соусами власного приготування.',
-            'image': 'new-menu.jpg'
-        },
-        {
-            'title': 'Літній майданчик',
-            'date': '1 травня 2023',
-            'content': 'Відкрилися наші літні майданчики з чудовим видом на море. Ідеальне місце для вечірніх зустрічей з друзями.',
-            'image': 'summer-terrace.jpg'
-        }
-    ]
-    return render_template('news.html', news_items=news_items)
+    return render_template('news.html', now=datetime.now(), news_items=news_items)
 
 @app.route('/contacts')
 def contacts():
-    return render_template('contacts.html', map_html=location())
+    return render_template('contacts.html', now=datetime.now(), map_html=location())
 
 @app.route('/restaurants')
 def restaurants():
-    return render_template('restaurants.html')
+    return render_template('restaurants.html', now=datetime.now())
 
 @app.route('/restaurants/pizzeria')
 def pizzeria():
-    return render_template('restaurants/pizzeria.html')
+    return render_template('restaurants/pizzeria.html', now=datetime.now())
 
 
 
