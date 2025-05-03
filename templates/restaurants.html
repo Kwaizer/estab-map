@@ -52,6 +52,16 @@
                 <a href="{{ url_for('beer_garden') }}" class="btn">Перейти до меню</a>
             </div>
         </div>
+        <div class="restaurant-card">
+            <div class="restaurant-image">
+                <img src="{{ url_for('static', filename='images/halushki/halushki.jpg') }}" alt="Ресторан Галушки">
+            </div>
+            <div class="restaurant-info">
+                <h2>Ресторан "Галушки"</h2>
+                <p>Автентична українська кухня: галушки, бульйони та традиційні напої. Смак, який об'єднує покоління.</p>
+                <a href="{{ url_for('halushki') }}" class="btn">Перейти до меню</a>
+            </div>
+        </div>
     </div>
 </section>
 {% endblock %}

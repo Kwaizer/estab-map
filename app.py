@@ -80,6 +80,10 @@ def grill_bar():
 def beer_garden():
     return render_template('restaurants/beer-garden.html', now=datetime.now())
 
+@app.route('/restaurants/halushki')
+def halushki():
+    return render_template('restaurants/halushki.html', now=datetime.now())
+
 
 
 if __name__ == '__main__':

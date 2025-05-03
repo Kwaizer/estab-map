@@ -1,0 +1,137 @@
+{% extends "base.html" %}
+
+{% block title %}Ресторан "Галушки" | Традиційна українська кухня{% endblock %}
+
+{% block content %}
+<section class="restaurant-header" style="background-image: url('{{ url_for('static', filename='images/halushki/halushki-bg.jpg') }}')">
+    <div class="header-overlay">
+        <h1>Ресторан "Галушки"</h1>
+        <p>Автентична українська кухня – смак дитинства та домашнього затишку</p>
+    </div>
+</section>
+
+<section class="menu-section">
+    <div class="container">
+        <h2>Наше меню</h2>
+        
+        <div class="menu-category">
+            <h3>Галушки</h3>
+            <div class="menu-items">
+                <div class="menu-item">
+                    <div class="item-header">
+                        <h4>Галушки з шинкою</h4>
+                        <span class="price">170 грн</span>
+                    </div>
+                    <p>250г | Ніжні галушки з копченою шинкою та вершковим соусом</p>
+                    <img src="{{ url_for('static', filename='images/halushki/halushki-ham.jpg') }}" alt="Галушки з шинкою">
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-header">
+                        <h4>Галушки, фаршировані м'ясним фаршем</h4>
+                        <span class="price">180 грн</span>
+                    </div>
+                    <p>210г | Домашні галушки з яловичим фаршем та смаженою цибулею</p>
+                    <img src="{{ url_for('static', filename='images/halushki/halushki-meat.jpg') }}" alt="Галушки з м'ясом">
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-header">
+                        <h4>Галушки з сиром</h4>
+                        <span class="price">150 грн</span>
+                    </div>
+                    <p>255г | Класичні галушки з домашнім сиром та сметаною</p>
+                    <img src="{{ url_for('static', filename='images/halushki/halushki-cheese.jpg') }}" alt="Галушки з сиром">
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-header">
+                        <h4>Безглютенові галушки з сиром</h4>
+                        <span class="price">140 грн</span>
+                    </div>
+                    <p>255г | Легкі галушки на рисовому борошні з сиром</p>
+                    <img src="{{ url_for('static', filename='images/halushki/halushki-gluten-free.jpg') }}" alt="Безглютенові галушки">
+                </div>
+            </div>
+        </div>
+
+        <div class="menu-category">
+            <h3>Напої</h3>
+            <div class="menu-items">
+                <div class="menu-item">
+                    <div class="item-header">
+                        <h4>Узвар</h4>
+                        <span class="price">60 грн</span>
+                    </div>
+                    <p>250мл | Традиційний компот із сушених фруктів</p>
+                    <img src="{{ url_for('static', filename='images/halushki/uzvar.jpg') }}" alt="Узвар">
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-header">
+                        <h4>Киселиця</h4>
+                        <span class="price">60 грн</span>
+                    </div>
+                    <p>250мл | Освіжаючий кисломолочний напій</p>
+                    <img src="{{ url_for('static', filename='images/halushki/kiselitsa.jpg') }}" alt="Киселиця">
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-header">
+                        <h4>Чай з липового цвіту</h4>
+                        <span class="price">40 грн</span>
+                    </div>
+                    <p>200мл | Ароматний трав'яний чай з медом</p>
+                    <img src="{{ url_for('static', filename='images/halushki/linden-tea.jpg') }}" alt="Чай липовий">
+                </div>
+            </div>
+        </div>
+
+        <div class="menu-category">
+            <h3>Бульйони</h3>
+            <div class="menu-items">
+                <div class="menu-item">
+                    <div class="item-header">
+                        <h4>Рибний бульйон з тюфтельками</h4>
+                        <span class="price">150 грн</span>
+                    </div>
+                    <p>350мл | Наваристий бульйон з домашніми рибними фрикадельками</p>
+                    <img src="{{ url_for('static', filename='images/halushki/fish-broth.jpg') }}" alt="Рибний бульйон">
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-header">
+                        <h4>Курячий бульйон з галушками</h4>
+                        <span class="price">160 грн</span>
+                    </div>
+                    <p>350мл | Ароматний бульйон з домашніми галушками</p>
+                    <img src="{{ url_for('static', filename='images/halushki/chicken-broth.jpg') }}" alt="Курячий бульйон">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="restaurant-info">
+    <div class="container">
+        <div class="info-block">
+            <h3>Наші особливості</h3>
+            <ul>
+                <li>Рецепти з різних регіонів України</li>
+                <li>Використання місцевих продуктів</li>
+                <li>Вегетаріанські та безглютенові страви</li>
+                <li>Автентична подача в глиняному посуді</li>
+            </ul>
+        </div>
+
+        <div class="info-block">
+            <h3>Години роботи</h3>
+            <p>Понеділок - Неділя: 10:00 - 22:00</p>
+        </div>
+
+        <div class="back-btn">
+            <a href="{{ url_for('restaurants') }}" class="btn">← До всіх закладів</a>
+        </div>
+    </div>
+</section>
+{% endblock %}
