@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block title %}Сосисочна "Хот-Догер" | Кращі хот-доги в місті{% endblock %}
+
+{% block content %}
+<section class="restaurant-header" style="background-image: url('{{ url_for('static', filename='images/hotdog/hotdog-bg.jpg') }}')">
+    <div class="header-overlay">
+        <h1>Сосисочна "Хот-Догер"</h1>
+        <p>Соковиті хот-доги з авторськими соусами - швидко, смачно, по-домашньому</p>
+    </div>
+</section>
+
+<section class="menu-section">
+    <div class="container">
+        <h2>Наше меню</h2>
+        
+        <div class="menu-category">
+            <h3>Хот-доги (80-150 грн)</h3>
+            <div class="menu-items">
+                <div class="menu-item">
+                    <h4>Класичний</h4>
+                    <p>Сосиска, кетчуп, гірчиця, цибуля</p>
+                </div>
+                <div class="menu-item">
+                    <h4>Чіз-дог</h4>
+                    <p>З плавленим сиром, беконом</p>
+                </div>
+                <div class="menu-item">
+                    <h4>Мексиканський</h4>
+                    <p>З халапеньйо, гуакамоле</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="menu-category">
+            <h3>Корн-доги (65-90 грн)</h3>
+            <div class="menu-items">
+                <div class="menu-item">
+                    <h4>Класичний</h4>
+                    <p>Сосиска в кукурудзяному тісті</p>
+                </div>
+                <div class="menu-item">
+                    <h4>З сиром</h4>
+                    <p>Моцарела в хрусткому тісті</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

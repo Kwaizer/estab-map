@@ -112,6 +112,16 @@
                 <a href="{{ url_for('donuts') }}" class="btn">Перейти до меню</a>
             </div>
         </div>
+        <div class="restaurant-card">
+            <div class="restaurant-image">
+                <img src="{{ url_for('static', filename='images/hotdog/hotdog.jpg') }}" alt="Сосисочна Хот-Догер">
+            </div>
+            <div class="restaurant-info">
+                <h2>Сосисочна "Хот-Догер"</h2>
+                <p>7 видів хот-догів, корн-доги та хрусткі картопляні діпи. Ідеально для швидкого перекусу.</p>
+                <a href="{{ url_for('hotdog') }}" class="btn">Перейти до меню</a>
+            </div>
+        </div>
     </div>
 </section>
 {% endblock %}
