@@ -100,6 +100,10 @@ def dumplings():
 def confectionery():
     return render_template('restaurants/confectionery.html', now=datetime.now())
 
+@app.route('/restaurants/donuts')
+def donuts():
+    return render_template('restaurants/donuts.html', now=datetime.now())
+
 
 
 if __name__ == '__main__':

@@ -1,10 +1,84 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "base.html" %}
 
-</body>
-</html>
+{% block title %}Пончикова "Круте тісто" | Свіжі пончики щодня{% endblock %}
+
+{% block content %}
+<section class="restaurant-header" style="background-image: url('{{ url_for('static', filename='images/donuts/donuts-bg.jpg') }}')">
+    <div class="header-overlay">
+        <h1>Пончикова "Круте тісто"</h1>
+        <p>Повітряні пончики з хрусткою глазур'ю - смак щасливого дитинства</p>
+    </div>
+</section>
+
+<section class="menu-section">
+    <div class="container">
+        <h2>Наші пончики</h2>
+        
+        <div class="menu-category">
+            <h3>Класичні (45-55 грн)</h3>
+            <div class="menu-items">
+                <div class="menu-item">
+                    <h4>Цукрова пудра</h4>
+                    <img src="{{ url_for('static', filename='images/donuts/sugar.jpg') }}" alt="Пончик з цукром">
+                </div>
+                <div class="menu-item">
+                    <h4>Шоколадна глазурь</h4>
+                    <img src="{{ url_for('static', filename='images/donuts/chocolate.jpg') }}" alt="Шоколадний пончик">
+                </div>
+                <div class="menu-item">
+                    <h4>Кокосова посипка</h4>
+                    <img src="{{ url_for('static', filename='images/donuts/coconut.jpg') }}" alt="Кокосовий пончик">
+                </div>
+            </div>
+        </div>
+
+        <div class="menu-category">
+            <h3>Фірмові (65-80 грн)</h3>
+            <div class="menu-items">
+                <div class="menu-item">
+                    <h4>Карамельно-горіховий</h4>
+                    <img src="{{ url_for('static', filename='images/donuts/caramel.jpg') }}" alt="Карамельний пончик">
+                </div>
+                <div class="menu-item">
+                    <h4>Баварський крем</h4>
+                    <img src="{{ url_for('static', filename='images/donuts/bavarian.jpg') }}" alt="Пончик з кремом">
+                </div>
+                <div class="menu-item">
+                    <h4>Малина-чізкейк</h4>
+                    <img src="{{ url_for('static', filename='images/donuts/raspberry.jpg') }}" alt="Малиновий пончик">
+                </div>
+            </div>
+        </div>
+
+        <div class="menu-category">
+            <h3>Напої</h3>
+            <div class="menu-items">
+                <div class="menu-item">
+                    <h4>Кава (40-60 грн)</h4>
+                    <p>Еспресо, американо, капучино</p>
+                </div>
+                <div class="menu-item">
+                    <h4>Молочні коктейлі (75 грн)</h4>
+                    <p>Шоколадний, ванільний, полуничний</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="restaurant-info">
+    <div class="container">
+        <div class="info-block">
+            <h3>Наші особливості</h3>
+            <ul>
+                <li>Готуємо щодня зі свіжих продуктів</li>
+                <li>Без консервантів та штучних барвників</li>
+                <li>Веганські варіанти</li>
+            </ul>
+        </div>
+        <div class="back-btn">
+            <a href="{{ url_for('restaurants') }}" class="btn">← До всіх закладів</a>
+        </div>
+    </div>
+</section>
+{% endblock %}
