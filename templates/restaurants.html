@@ -122,6 +122,16 @@
                 <a href="{{ url_for('hotdog') }}" class="btn">Перейти до меню</a>
             </div>
         </div>
+        <div class="restaurant-card">
+            <div class="restaurant-image">
+                <img src="{{ url_for('static', filename='images/pancakes/pancakes.jpg') }}" alt="Блинна Млинець">
+            </div>
+            <div class="restaurant-info">
+                <h2>Блинна "Млинець"</h2>
+                <p>Тонкі млинці з 12 видами начинок - від класичних до авторських. Чай на травках.</p>
+                <a href="{{ url_for('pancakes') }}" class="btn">Перейти до меню</a>
+            </div>
+        </div>
     </div>
 </section>
 {% endblock %}

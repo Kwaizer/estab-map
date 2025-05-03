@@ -108,6 +108,10 @@ def donuts():
 def hotdog():
     return render_template('restaurants/hotdog.html', now=datetime.now())
 
+@app.route('/restaurants/pancakes')
+def pancakes():
+    return render_template('restaurants/pancakes.html', now=datetime.now())
+
 
 
 if __name__ == '__main__':

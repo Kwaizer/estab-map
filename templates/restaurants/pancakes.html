@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block title %}Блинна "Млинець" | Смачні млинці з різними начинками{% endblock %}
+
+{% block content %}
+<section class="restaurant-header" style="background-image: url('{{ url_for('static', filename='images/pancakes/pancakes-bg.jpg') }}')">
+    <div class="header-overlay">
+        <h1>Блинна "Млинець"</h1>
+        <p>Тонкі млинці на молоці - як у бабусі на кухні</p>
+    </div>
+</section>
+
+<section class="menu-section">
+    <div class="container">
+        <h2>Наше меню</h2>
+        
+        <div class="menu-category">
+            <h3>Солодкі млинці (50-80 грн)</h3>
+            <div class="menu-items">
+                <div class="menu-item">
+                    <h4>З сиром</h4>
+                    <p>Домашній сир, родзинки</p>
+                </div>
+                <div class="menu-item">
+                    <h4>З варенням</h4>
+                    <p>Вишневе, полуничне, абрикосове</p>
+                </div>
+                <div class="menu-item">
+                    <h4>Шоколадний</h4>
+                    <p>З Нутеллою та бананом</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="menu-category">
+            <h3>Солоні млинці (70-120 грн)</h3>
+            <div class="menu-items">
+                <div class="menu-item">
+                    <h4>З лососем</h4>
+                    <p>З слабосоленим лососем, крем-сиром</p>
+                </div>
+                <div class="menu-item">
+                    <h4>З шинкою та сиром</h4>
+                    <p>З копченою шинкою та моцарелою</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
