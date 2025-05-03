@@ -1,10 +1,111 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "base.html" %}
 
-</body>
-</html>
+{% block title %}Кондитерська "Солодка Мрія" | Домашні десерти ручної роботи{% endblock %}
+
+{% block content %}
+<section class="restaurant-header" style="background-image: url('{{ url_for('static', filename='images/confectionery/confectionery-bg.jpg') }}')">
+    <div class="header-overlay">
+        <h1>Кондитерська "Солодка Мрія"</h1>
+        <p>Найніжніші десерти, що створені з любов'ю та натуральних інгредієнтів</p>
+    </div>
+</section>
+
+<section class="menu-section">
+    <div class="container">
+        <h2>Наші солодощі</h2>
+        
+        <div class="menu-category">
+            <h3>Торти</h3>
+            <div class="menu-items">
+                <div class="menu-item">
+                    <div class="item-header">
+                        <h4>Класичний наполеон</h4>
+                        <span class="price">450 грн/кг</span>
+                    </div>
+                    <p>Тонкі коржі з листкового тіста з заварним кремом</p>
+                    <img src="{{ url_for('static', filename='images/confectionery/napoleon.jpg') }}" alt="Торт Наполеон">
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-header">
+                        <h4>Чизкейк Нью-Йорк</h4>
+                        <span class="price">520 грн/кг</span>
+                    </div>
+                    <p>Ніжний сирний десерт на пісочній основі</p>
+                    <img src="{{ url_for('static', filename='images/confectionery/cheesecake.jpg') }}" alt="Чизкейк">
+                </div>
+            </div>
+        </div>
+
+        <div class="menu-category">
+            <h3>Тістечка</h3>
+            <div class="menu-items">
+                <div class="menu-item">
+                    <div class="item-header">
+                        <h4>Макарун</h4>
+                        <span class="price">65 грн/шт</span>
+                    </div>
+                    <p>Французький десерт з мигдалевого борошна з різними начинками</p>
+                    <img src="{{ url_for('static', filename='images/confectionery/macarons.jpg') }}" alt="Макаруни">
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-header">
+                        <h4>Еклери</h4>
+                        <span class="price">55 грн/шт</span>
+                    </div>
+                    <p>Заварні тістечка з заварним кремом та глазур'ю</p>
+                    <img src="{{ url_for('static', filename='images/confectionery/eclairs.jpg') }}" alt="Еклери">
+                </div>
+            </div>
+        </div>
+
+        <div class="menu-category">
+            <h3>Сезонні пропозиції</h3>
+            <div class="menu-items">
+                <div class="menu-item">
+                    <div class="item-header">
+                        <h4>Тірамісу</h4>
+                        <span class="price">480 грн/кг</span>
+                    </div>
+                    <p>Італійський десерт з печива савоярді, маскарпоне та кави</p>
+                    <img src="{{ url_for('static', filename='images/confectionery/tiramisu.jpg') }}" alt="Тірамісу">
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-header">
+                        <h4>Ягідний пай</h4>
+                        <span class="price">380 грн/кг</span>
+                    </div>
+                    <p>Пісочна основа з сезонними ягодами</p>
+                    <img src="{{ url_for('static', filename='images/confectionery/berry-pie.jpg') }}" alt="Ягідний пай">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="restaurant-info">
+    <div class="container">
+        <div class="info-block">
+            <h3>Наші переваги</h3>
+            <ul>
+                <li>100% натуральні інгредієнти</li>
+                <li>Без штучних барвників та консервантів</li>
+                <li>Можливість створення десертів на замовлення</li>
+                <li>Безглютенові та веганські варіанти</li>
+            </ul>
+        </div>
+
+        <div class="info-block">
+            <h3>Години роботи</h3>
+            <p>Понеділок - П'ятниця: 09:00 - 20:00</p>
+            <p>Субота - Неділя: 10:00 - 18:00</p>
+        </div>
+
+        <div class="back-btn">
+            <a href="{{ url_for('restaurants') }}" class="btn">← До всіх закладів</a>
+        </div>
+    </div>
+</section>
+{% endblock %}

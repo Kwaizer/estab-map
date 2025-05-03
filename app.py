@@ -96,6 +96,10 @@ def burgers():
 def dumplings():
     return render_template('restaurants/dumplings.html', now=datetime.now())
 
+@app.route('/restaurants/confectionery')
+def confectionery():
+    return render_template('restaurants/confectionery.html', now=datetime.now())
+
 
 
 if __name__ == '__main__':

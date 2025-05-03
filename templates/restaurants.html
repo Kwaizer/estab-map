@@ -92,6 +92,16 @@
                 <a href="{{ url_for('dumplings') }}" class="btn">Перейти до меню</a>
             </div>
         </div>
+        <div class="restaurant-card">
+                <div class="restaurant-image">
+                    <img src="{{ url_for('static', filename='images/confectionery/confectionery.jpg') }}" alt="Кондитерська Солодка Мрія">
+                </div>
+                <div class="restaurant-info">
+                    <h2>Кондитерська "Солодка Мрія"</h2>
+                    <p>Найсмачніші домашні десерти: торти, тістечка та сезонні солодощі з натуральних інгредієнтів</p>
+                    <a href="{{ url_for('confectionery') }}" class="btn">Перейти до меню</a>
+                </div>
+            </div>
     </div>
 </section>
 {% endblock %}
