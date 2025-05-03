@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+
+{% block title %}Grill-Bar | ODESA STREET FOOD{% endblock %}
+
+{% block content %}
+<section class="restaurant-header" style="background-image: url('{{ url_for('static', filename='images/grill-bar/grill-bg.jpg') }}')">
+    <div class="header-overlay">
+        <h1>Grill-Bar</h1>
+        <p>Соковите м'ясо, ароматні спеції та атмосфера справжнього вуличного грилю</p>
+    </div>
+</section>
+
+<section class="menu-section">
+    <div class="container">
+        <h2>Наше меню</h2>
+        
+        <div class="menu-category">
+            <h3>Класичні гриль-страви</h3>
+            <div class="menu-items">
+                <div class="menu-item">
+                    <div class="item-header">
+                        <h4>Стейк з яловичини</h4>
+                        <span class="price">320 грн</span>
+                    </div>
+                    <p>Ніжний стейк з рибай, подається з картоплею гриль та соусом на вибір</p>
+                    <img src="{{ url_for('static', filename='images/grill-bar/steak.jpg') }}" alt="Стейк з яловичини">
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-header">
+                        <h4>Ребра BBQ</h4>
+                        <span class="price">280 грн</span>
+                    </div>
+                    <p>Соковиті свинні ребра в медово-гірчичному соусі з копченою паприкою</p>
+                    <img src="{{ url_for('static', filename='images/grill-bar/ribs.jpg') }}" alt="Ребра BBQ">
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-header">
+                        <h4>Курячі крильця</h4>
+                        <span class="price">180 грн</span>
+                    </div>
+                    <p>Хрусткі крильця з медово-часниковим глазуром та свіжим сельдереєм</p>
+                    <img src="{{ url_for('static', filename='images/grill-bar/wings.jpg') }}" alt="Курячі крильця">
+                </div>
+            </div>
+        </div>
+
+        <div class="menu-category">
+            <h3>Бургери та сендвічі</h3>
+            <div class="menu-items">
+                <div class="menu-item">
+                    <div class="item-header">
+                        <h4>Чорний бургер</h4>
+                        <span class="price">220 грн</span>
+                    </div>
+                    <p>Яловича котлета, бекон, сир Чеддер, чорна булочка з чорнилом каракатиці</p>
+                    <img src="{{ url_for('static', filename='images/grill-bar/black-burger.jpg') }}" alt="Чорний бургер">
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-header">
+                        <h4>Сендвіч з пастромі</h4>
+                        <span class="price">190 грн</span>
+                    </div>
+                    <p>Нарізане пастромі, сир, гірчиця, солоний огірок на грінкованому хлібі</p>
+                    <img src="{{ url_for('static', filename='images/grill-bar/pastrami-sandwich.jpg') }}" alt="Сендвіч з пастромі">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="restaurant-info">
+    <div class="container">
+        <div class="info-block">
+            <h3>Години роботи</h3>
+            <p>Понеділок - Четвер: 12:00 - 23:00</p>
+            <p>П'ятниця - Неділя: 12:00 - 00:00</p>
+        </div>
+
+        <div class="info-block">
+            <h3>Особливості</h3>
+            <ul>
+                <li>М'ясо на мангалі та грилі</li>
+                <li>Авторські соуси</li>
+                <li>Крафтове пиво та м'ясні снеки</li>
+            </ul>
+        </div>
+        <div class="back-btn">
+            <a href="{{ url_for('restaurants') }}" class="btn">← До всіх закладів</a>
+        </div>
+    </div>
+</section>
+{% endblock %}

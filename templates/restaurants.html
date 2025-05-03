@@ -12,7 +12,7 @@
     <div class="container">
         <div class="restaurant-card">
             <div class="restaurant-image">
-                <img src="{{ url_for('static', filename='images/pizza.jpg') }}" alt="Піцерія">
+                <img src="{{ url_for('static', filename='images/pizzeria/pizza.jpg') }}" alt="Піцерія">
             </div>
             <div class="restaurant-info">
                 <h2>Піцерія</h2>
@@ -23,23 +23,23 @@
 
         <div class="restaurant-card">
             <div class="restaurant-image">
-                <img src="{{ url_for('static', filename='images/bistro.jpg') }}" alt="Бістро">
+                <img src="{{ url_for('static', filename='images/fish-bistro/fish-bistro.jpg') }}" alt="Бістро">
             </div>
             <div class="restaurant-info">
                 <h2>Бістро</h2>
                 <p>Швидке та смачне харчування для справжніх міських жителів. Свіжі салати, сендвічі та гарячі страви.</p>
-                <a href="#" class="btn">Перейти до меню</a>
+                <a href="{{ url_for('fish_bistro') }}" class="btn">Перейти до меню</a>
             </div>
         </div>
 
         <div class="restaurant-card">
             <div class="restaurant-image">
-                <img src="{{ url_for('static', filename='images/grill.jpg') }}" alt="Гриль-бар">
+                <img src="{{ url_for('static', filename='images/grill-bar/grill-bar.jpg') }}" alt="Гриль-бар">
             </div>
             <div class="restaurant-info">
                 <h2>Гриль-бар</h2>
                 <p>М'ясні спеціалітети на будь-який смак. Ароматні стейки, реберця та авторські соуси.</p>
-                <a href="#" class="btn">Перейти до меню</a>
+                <a href="{{ url_for('grill_bar') }}" class="btn">Перейти до меню</a>
             </div>
         </div>
     </div>

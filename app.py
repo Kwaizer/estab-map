@@ -68,6 +68,14 @@ def restaurants():
 def pizzeria():
     return render_template('restaurants/pizzeria.html', now=datetime.now())
 
+@app.route('/restaurants/fish_bistro')
+def  fish_bistro():
+    return render_template('restaurants/fish-bistro.html', now=datetime.now())
+
+@app.route('/restaurants/grill_bar')
+def grill_bar():
+    return render_template('restaurants/grill-bar.html', now=datetime.now())
+
 
 
 if __name__ == '__main__':

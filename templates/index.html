@@ -20,9 +20,19 @@
     <h2>Наші заклади</h2>
     <div class="restaurant-cards">
         <div class="card">
-            <img src="{{ url_for('static', filename='images/pizza.jpg') }}" alt="Піцерія">
+            <img src="{{ url_for('static', filename='images/pizzeria/pizza.jpg') }}" alt="Піцерія">
             <h3>Піцерія</h3>
             <a href="{{ url_for('pizzeria') }}">Детальніше</a>
+        </div>
+        <div class="card">
+            <img src="{{ url_for('static', filename='images/fish-bistro/fish-bistro.jpg') }}" alt="Бістро">
+            <h3>Бістро</h3>
+            <a href="{{ url_for('fish_bistro') }}">Детальніше</a>
+        </div>
+        <div class="card">
+            <img src="{{ url_for('static', filename='images/grill-bar/grill-bar.jpg') }}" alt="Гриль-бар">
+            <h3>Гриль-бар</h3>
+            <a href="{{ url_for('grill_bar') }}">Детальніше</a>
         </div>
         <!-- Інші заклади -->
     </div>

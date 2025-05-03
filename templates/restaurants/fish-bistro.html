@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+
+{% block title %}Рибне бістро | ODESA STREET FOOD{% endblock %}
+
+{% block content %}
+<section class="restaurant-header" style="background-image: url('{{ url_for('static', filename='images/fish-bistro/fish-bistro-bg.jpg') }}')">
+    <div class="header-overlay">
+        <h1>Рибне бістро</h1>
+        <p>Свіжі морські смаки з одеським колоритом</p>
+    </div>
+</section>
+
+<section class="menu-section">
+    <div class="container">
+        <h2>Наше меню</h2>
+
+        <div class="menu-category">
+            <h3>Класичні рибні страви</h3>
+            <div class="menu-items">
+                <div class="menu-item">
+                    <div class="item-header">
+                        <h4>Смажена камбала</h4>
+                        <span class="price">220 грн</span>
+                    </div>
+                    <p>Філе камбали з хрусткою скоринкою, лимонний соус, свіжа зелень</p>
+                    <img src="{{ url_for('static', filename='images/fish-bistro/fried-flounder.jpg') }}" alt="Смажена камбала">
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-header">
+                        <h4>Уха по-одеськи</h4>
+                        <span class="price">150 грн</span>
+                    </div>
+                    <p>Навариста юшка з трьох видів риби, картоплею та морквою</p>
+                    <img src="{{ url_for('static', filename='images/fish-bistro/ukha.jpg') }}" alt="Уха по-одеськи">
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-header">
+                        <h4>Грецький салат з тунцем</h4>
+                        <span class="price">180 грн</span>
+                    </div>
+                    <p>Свіжий тунець, помідори, огірки, оливки, сир фета, оливкова олія</p>
+                    <img src="{{ url_for('static', filename='images/fish-bistro/greek-salad-tuna.jpg') }}" alt="Грецький салат з тунцем">
+                </div>
+            </div>
+        </div>
+
+        <div class="menu-category">
+            <h3>Фірмові страви</h3>
+            <div class="menu-items">
+                <div class="menu-item">
+                    <div class="item-header">
+                        <h4>Чорноморський судак</h4>
+                        <span class="price">250 грн</span>
+                    </div>
+                    <p>Філе судака, запечене з овочами під вершковим соусом</p>
+                    <img src="{{ url_for('static', filename='images/fish-bistro/zander.jpg') }}" alt="Чорноморський судак">
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-header">
+                        <h4>Міді в чосниковому соусі</h4>
+                        <span class="price">200 грн</span>
+                    </div>
+                    <p>Свіжі міді, тушковані з часником, білим вином і зеленню</p>
+                    <img src="{{ url_for('static', filename='images/fish-bistro/mussels.jpg') }}" alt="Міді в чосниковому соусі">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="restaurant-info">
+    <div class="container">
+        <div class="info-block">
+            <h3>Години роботи</h3>
+            <p>Понеділок - Неділя: 12:00 - 22:00</p>
+        </div>
+
+        <div class="info-block">
+            <h3>Особливості</h3>
+            <ul>
+                <li>Щоденний улов від місцевих рибалок</li>
+                <li>Свіжі морепродукти</li>
+                <li>Можливість вибору способу приготування</li>
+            </ul>
+        </div>
+        <div class="back-btn">
+            <a href="{{ url_for('restaurants') }}" class="btn">← До всіх закладів</a>
+        </div>
+    </div>
+</section>
+{% endblock %}
