@@ -76,6 +76,10 @@ def  fish_bistro():
 def grill_bar():
     return render_template('restaurants/grill-bar.html', now=datetime.now())
 
+@app.route('/restaurants/beer_garden')
+def beer_garden():
+    return render_template('restaurants/beer-garden.html', now=datetime.now())
+
 
 
 if __name__ == '__main__':

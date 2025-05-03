@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+
+{% block title %}Пивний Сад | ODESA STREET FOOD{% endblock %}
+
+{% block content %}
+<section class="restaurant-header" style="background-image: url('{{ url_for('static', filename='images/beer-garden/beer-garden-bg.jpg') }}')">
+    <div class="header-overlay">
+        <h1>Пивний Сад</h1>
+        <p>Свіже крафтове пиво, смачні закуски та затишна атмосфера під відкритим небом</p>
+    </div>
+</section>
+
+<section class="menu-section">
+    <div class="container">
+        <h2>Наше меню</h2>
+        
+        <div class="menu-category">
+            <h3>Крафтове пиво</h3>
+            <div class="menu-items">
+                <div class="menu-item">
+                    <div class="item-header">
+                        <h4>Світлий лагер</h4>
+                        <span class="price">80 грн/0.5л</span>
+                    </div>
+                    <p>Легке освіжаюче пиво з нотками солоду та хмелю</p>
+                    <img src="{{ url_for('static', filename='images/beer-garden/lager.jpg') }}" alt="Світлий лагер">
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-header">
+                        <h4>IPA</h4>
+                        <span class="price">90 грн/0.5л</span>
+                    </div>
+                    <p>Ароматне пиво з яскраво вираженим хмелевим смаком</p>
+                    <img src="{{ url_for('static', filename='images/beer-garden/ipa.jpg') }}" alt="IPA">
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-header">
+                        <h4>Пшеничне</h4>
+                        <span class="price">85 грн/0.5л</span>
+                    </div>
+                    <p>Ніжне пиво з фруктовими нотками та характерною кислинкою</p>
+                    <img src="{{ url_for('static', filename='images/beer-garden/wheat-beer.jpg') }}" alt="Пшеничне пиво">
+                </div>
+            </div>
+        </div>
+
+        <div class="menu-category">
+            <h3>Закуски до пива</h3>
+            <div class="menu-items">
+                <div class="menu-item">
+                    <div class="item-header">
+                        <h4>Крильця Buffalo</h4>
+                        <span class="price">160 грн</span>
+                    </div>
+                    <p>Хрусткі курячі крильця в гостро-солодкому соусі з блакитним сиром</p>
+                    <img src="{{ url_for('static', filename='images/beer-garden/buffalo-wings.jpg') }}" alt="Крильця Buffalo">
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-header">
+                        <h4>Копчені реберця</h4>
+                        <span class="price">220 грн</span>
+                    </div>
+                    <p>Ніжні свинні реберця з медово-гірчичним соусом</p>
+                    <img src="{{ url_for('static', filename='images/beer-garden/ribs.jpg') }}" alt="Копчені реберця">
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-header">
+                        <h4>Пивний сет</h4>
+                        <span class="price">250 грн</span>
+                    </div>
+                    <p>Асорті з сирів, копченостей, грінок та горіхів</p>
+                    <img src="{{ url_for('static', filename='images/beer-garden/beer-snack-set.jpg') }}" alt="Пивний сет">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="restaurant-info">
+    <div class="container">
+        <div class="info-block">
+            <h3>Години роботи</h3>
+            <p>Понеділок - Четвер: 15:00 - 23:00</p>
+            <p>П'ятниця - Неділя: 14:00 - 00:00</p>
+        </div>
+
+        <div class="info-block">
+            <h3>Особливості</h3>
+            <ul>
+                <li>10+ видів крафтового пива</li>
+                <li>Літня тераса з гамаками</li>
+                <li>Жива музика у вихідні</li>
+            </ul>
+        </div>
+        <div class="back-btn">
+            <a href="{{ url_for('restaurants') }}" class="btn">← До всіх закладів</a>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -42,6 +42,16 @@
                 <a href="{{ url_for('grill_bar') }}" class="btn">Перейти до меню</a>
             </div>
         </div>
+        <div class="restaurant-card">
+            <div class="restaurant-image">
+                <img src="{{ url_for('static', filename='images/beer-garden/beer-garden.jpg') }}" alt="Пивний Сад">
+            </div>
+            <div class="restaurant-info">
+                <h2>Пивний Сад</h2>
+                <p>Крафтове пиво, смачні закуски та затишна атмосфера під відкритим небом. Ідеальне місце для відпочинку з друзями.</p>
+                <a href="{{ url_for('beer_garden') }}" class="btn">Перейти до меню</a>
+            </div>
+        </div>
     </div>
 </section>
 {% endblock %}
