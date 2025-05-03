@@ -1,10 +1,111 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "base.html" %}
 
-</body>
-</html>
+{% block title %}Грузинський ресторан "Сакартвело" | Справжній смак Кавказу{% endblock %}
+
+{% block content %}
+<section class="restaurant-header" style="background-image: url('{{ url_for('static', filename='images/georgian/georgian-bg.jpg') }}')">
+    <div class="header-overlay">
+        <h1>Ресторан "Сакартвело"</h1>
+        <p>Справжня грузинська кухня – вогонь смаку, гостинність та щирі емоції</p>
+    </div>
+</section>
+
+<section class="menu-section">
+    <div class="container">
+        <h2>Наше меню</h2>
+        
+        <div class="menu-category">
+            <h3>Хачапурі</h3>
+            <div class="menu-items">
+                <div class="menu-item">
+                    <div class="item-header">
+                        <h4>Хачапурі по-аджарськи</h4>
+                        <span class="price">220 грн</span>
+                    </div>
+                    <p>Човник з хрусткого тіста, сиру сулугуні та яйцем</p>
+                    <img src="{{ url_for('static', filename='images/georgian/adjarian-khachapuri.jpg') }}" alt="Хачапурі по-аджарськи">
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-header">
+                        <h4>Хачапурі по-імеретинськи</h4>
+                        <span class="price">180 грн</span>
+                    </div>
+                    <p>Круглий пиріг із сиром сулугуні</p>
+                    <img src="{{ url_for('static', filename='images/georgian/imeretian-khachapuri.jpg') }}" alt="Хачапурі по-імеретинськи">
+                </div>
+            </div>
+        </div>
+
+        <div class="menu-category">
+            <h3>М'ясні страви</h3>
+            <div class="menu-items">
+                <div class="menu-item">
+                    <div class="item-header">
+                        <h4>Шашлик з телятини</h4>
+                        <span class="price">280 грн</span>
+                    </div>
+                    <p>Ніжне м'ясо, мариноване у гранатовому соусі з грузинськими спеціями</p>
+                    <img src="{{ url_for('static', filename='images/georgian/veal-shashlik.jpg') }}" alt="Шашлик з телятини">
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-header">
+                        <h4>Чахохбілі</h4>
+                        <span class="price">240 грн</span>
+                    </div>
+                    <p>Курка, тушкована з томатами, цибулею та грузинськими травами</p>
+                    <img src="{{ url_for('static', filename='images/georgian/chakhokhbili.jpg') }}" alt="Чахохбілі">
+                </div>
+            </div>
+        </div>
+
+        <div class="menu-category">
+            <h3>Вегетаріанські страви</h3>
+            <div class="menu-items">
+                <div class="menu-item">
+                    <div class="item-header">
+                        <h4>Лобіо</h4>
+                        <span class="price">160 грн</span>
+                    </div>
+                    <p>Квасоля з горіхами, часником та зеленню</p>
+                    <img src="{{ url_for('static', filename='images/georgian/lobio.jpg') }}" alt="Лобіо">
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-header">
+                        <h4>Пхалі</h4>
+                        <span class="price">170 грн</span>
+                    </div>
+                    <p>Закуска з шпинату, горіхів та спецій</p>
+                    <img src="{{ url_for('static', filename='images/georgian/pkhali.jpg') }}" alt="Пхалі">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="restaurant-info">
+    <div class="container">
+        <div class="info-block">
+            <h3>Наші особливості</h3>
+            <ul>
+                <li>Автентичні грузинські рецепти</li>
+                <li>М'ясо на мангалі з дровами</li>
+                <li>Домашні грузинські вина</li>
+                <li>Жива музика у вихідні</li>
+            </ul>
+        </div>
+
+        <div class="info-block">
+            <h3>Години роботи</h3>
+            <p>Понеділок - Четвер: 12:00 - 23:00</p>
+            <p>П'ятниця - Неділя: 12:00 - 00:00</p>
+        </div>
+
+        <div class="back-btn">
+            <a href="{{ url_for('restaurants') }}" class="btn">← До всіх закладів</a>
+        </div>
+    </div>
+</section>
+{% endblock %}

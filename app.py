@@ -84,6 +84,10 @@ def beer_garden():
 def halushki():
     return render_template('restaurants/halushki.html', now=datetime.now())
 
+@app.route('/restaurants/georgian')
+def georgian():
+    return render_template('restaurants/georgian.html', now=datetime.now())
+
 
 
 if __name__ == '__main__':
