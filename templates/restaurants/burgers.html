@@ -1,10 +1,111 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "base.html" %}
 
-</body>
-</html>
+{% block title %}Бургерна "Meat & Bun" | Найсоковитіші бургери в місті{% endblock %}
+
+{% block content %}
+<section class="restaurant-header" style="background-image: url('{{ url_for('static', filename='images/burgers/burgers-bg.jpg') }}')">
+    <div class="header-overlay">
+        <h1>Бургерна "Meat & Bun"</h1>
+        <p>Соковиті бургери з преміум яловичини, авторські соуси та хрусткі булочки</p>
+    </div>
+</section>
+
+<section class="menu-section">
+    <div class="container">
+        <h2>Наше меню</h2>
+        
+        <div class="menu-category">
+            <h3>Класичні бургери</h3>
+            <div class="menu-items">
+                <div class="menu-item">
+                    <div class="item-header">
+                        <h4>Чізбургер</h4>
+                        <span class="price">160 грн</span>
+                    </div>
+                    <p>Яловича котлета 180г, сир Чеддер, маринований огірок, цибуля, соус</p>
+                    <img src="{{ url_for('static', filename='images/burgers/cheeseburger.jpg') }}" alt="Чізбургер">
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-header">
+                        <h4>Бекон бургер</h4>
+                        <span class="price">190 грн</span>
+                    </div>
+                    <p>Подвійна котлета, бекон, сир, гриби, BBQ соус</p>
+                    <img src="{{ url_for('static', filename='images/burgers/bacon-burger.jpg') }}" alt="Бекон бургер">
+                </div>
+            </div>
+        </div>
+
+        <div class="menu-category">
+            <h3>Фірмові бургери</h3>
+            <div class="menu-items">
+                <div class="menu-item">
+                    <div class="item-header">
+                        <h4>Black Jack</h4>
+                        <span class="price">220 грн</span>
+                    </div>
+                    <p>Чорна булочка, котлета з яловичини, сир Дор Блю, груша, горіховий соус</p>
+                    <img src="{{ url_for('static', filename='images/burgers/black-jack.jpg') }}" alt="Black Jack бургер">
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-header">
+                        <h4>Вегетаріанський</h4>
+                        <span class="price">180 грн</span>
+                    </div>
+                    <p>Котлета з нуту, авокадо, мікс салату, соус тахіні</p>
+                    <img src="{{ url_for('static', filename='images/burgers/veggie-burger.jpg') }}" alt="Вегетаріанський бургер">
+                </div>
+            </div>
+        </div>
+
+        <div class="menu-category">
+            <h3>Снеки та додатки</h3>
+            <div class="menu-items">
+                <div class="menu-item">
+                    <div class="item-header">
+                        <h4>Картопля фрі</h4>
+                        <span class="price">80 грн</span>
+                    </div>
+                    <p>Хрустка картопля з трюфельною олією та пармезаном</p>
+                    <img src="{{ url_for('static', filename='images/burgers/fries.jpg') }}" alt="Картопля фрі">
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-header">
+                        <h4>Курячі стріпси</h4>
+                        <span class="price">120 грн</span>
+                    </div>
+                    <p>Хрусткі курячі смужки з медово-гірчичним соусом</p>
+                    <img src="{{ url_for('static', filename='images/burgers/chicken-strips.jpg') }}" alt="Курячі стріпси">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="restaurant-info">
+    <div class="container">
+        <div class="info-block">
+            <h3>Наші особливості</h3>
+            <ul>
+                <li>Свіже м'ясо від місцевих фермерів</li>
+                <li>Домашні булочки власного виробництва</li>
+                <li>Веганські та вегетаріанські опції</li>
+                <li>Крафтові напої та мілкшейки</li>
+            </ul>
+        </div>
+
+        <div class="info-block">
+            <h3>Години роботи</h3>
+            <p>Понеділок - Четвер: 11:00 - 23:00</p>
+            <p>П'ятниця - Неділя: 11:00 - 00:00</p>
+        </div>
+
+        <div class="back-btn">
+            <a href="{{ url_for('restaurants') }}" class="btn">← До всіх закладів</a>
+        </div>
+    </div>
+</section>
+{% endblock %}

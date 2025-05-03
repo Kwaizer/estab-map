@@ -88,6 +88,10 @@ def halushki():
 def georgian():
     return render_template('restaurants/georgian.html', now=datetime.now())
 
+@app.route('/restaurants/burgers')
+def burgers():
+    return render_template('restaurants/burgers.html', now=datetime.now())
+
 
 
 if __name__ == '__main__':
