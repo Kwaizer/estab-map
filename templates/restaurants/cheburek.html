@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block title %}Чебуречна "Хруст" | Справжні кримські чебуреки{% endblock %}
+
+{% block content %}
+<section class="restaurant-header" style="background-image: url('{{ url_for('static', filename='images/cheburek/cheburek-bg.jpg') }}')">
+    <div class="header-overlay">
+        <h1>Чебуречна "Хруст"</h1>
+        <p>Хрусткі чебуреки з соковитою начинкою - смак Криму</p>
+    </div>
+</section>
+
+<section class="menu-section">
+    <div class="container">
+        <h2>Наше меню</h2>
+        
+        <div class="menu-category">
+            <h3>Чебуреки (80-130 грн)</h3>
+            <div class="menu-items">
+                <div class="menu-item">
+                    <h4>З м'ясом</h4>
+                    <p>Яловичина з цибулею та спеціями</p>
+                </div>
+                <div class="menu-item">
+                    <h4>З сиром</h4>
+                    <p>Бринза з зеленню</p>
+                </div>
+                <div class="menu-item">
+                    <h4>З грибами</h4>
+                    <p>Печериці з цибулею</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="menu-category">
+            <h3>Додатки</h3>
+            <div class="menu-items">
+                <div class="menu-item">
+                    <h4>Холодний чай (40 грн)</h4>
+                </div>
+                <div class="menu-item">
+                    <h4>Айран (45 грн)</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

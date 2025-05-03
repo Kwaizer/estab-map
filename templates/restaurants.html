@@ -94,6 +94,36 @@
         </div>
         <div class="restaurant-card">
             <div class="restaurant-image">
+                <img src="{{ url_for('static', filename='images/hotdog/hotdog.jpg') }}" alt="Сосисочна Хот-Догер">
+            </div>
+            <div class="restaurant-info">
+                <h2>Сосисочна "Хот-Догер"</h2>
+                <p>7 видів хот-догів, корн-доги та хрусткі картопляні діпи. Ідеально для швидкого перекусу.</p>
+                <a href="{{ url_for('hotdog') }}" class="btn">Перейти до меню</a>
+            </div>
+        </div>
+        <div class="restaurant-card">
+            <div class="restaurant-image">
+                <img src="{{ url_for('static', filename='images/cheburek/cheburek.jpg') }}" alt="Чебуречна Хруст">
+            </div>
+            <div class="restaurant-info">
+                <h2>Чебуречна "Хруст"</h2>
+                <p>Справжні кримські чебуреки з хрусткою скоринкою. 5 видів начинок.</p>
+                <a href="{{ url_for('cheburek') }}" class="btn">Перейти до меню</a>
+            </div>
+        </div>
+        <div class="restaurant-card">
+            <div class="restaurant-image">
+                <img src="{{ url_for('static', filename='images/pancakes/pancakes.jpg') }}" alt="Блинна Млинець">
+            </div>
+            <div class="restaurant-info">
+                <h2>Блинна "Млинець"</h2>
+                <p>Тонкі млинці з 12 видами начинок - від класичних до авторських. Чай на травках.</p>
+                <a href="{{ url_for('pancakes') }}" class="btn">Перейти до меню</a>
+            </div>
+        </div>
+        <div class="restaurant-card">
+            <div class="restaurant-image">
                 <img src="{{ url_for('static', filename='images/confectionery/confectionery.jpg') }}" alt="Кондитерська Солодка Мрія">
             </div>
             <div class="restaurant-info">
@@ -110,26 +140,6 @@
                 <h2>Пончикова "Круте тісто"</h2>
                 <p>Свіжі пончики з 10+ видами глазурі та начинок. Кава та молочні коктейлі.</p>
                 <a href="{{ url_for('donuts') }}" class="btn">Перейти до меню</a>
-            </div>
-        </div>
-        <div class="restaurant-card">
-            <div class="restaurant-image">
-                <img src="{{ url_for('static', filename='images/hotdog/hotdog.jpg') }}" alt="Сосисочна Хот-Догер">
-            </div>
-            <div class="restaurant-info">
-                <h2>Сосисочна "Хот-Догер"</h2>
-                <p>7 видів хот-догів, корн-доги та хрусткі картопляні діпи. Ідеально для швидкого перекусу.</p>
-                <a href="{{ url_for('hotdog') }}" class="btn">Перейти до меню</a>
-            </div>
-        </div>
-        <div class="restaurant-card">
-            <div class="restaurant-image">
-                <img src="{{ url_for('static', filename='images/pancakes/pancakes.jpg') }}" alt="Блинна Млинець">
-            </div>
-            <div class="restaurant-info">
-                <h2>Блинна "Млинець"</h2>
-                <p>Тонкі млинці з 12 видами начинок - від класичних до авторських. Чай на травках.</p>
-                <a href="{{ url_for('pancakes') }}" class="btn">Перейти до меню</a>
             </div>
         </div>
     </div>

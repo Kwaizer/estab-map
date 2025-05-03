@@ -96,6 +96,18 @@ def burgers():
 def dumplings():
     return render_template('restaurants/dumplings.html', now=datetime.now())
 
+@app.route('/restaurants/hotdog')
+def hotdog():
+    return render_template('restaurants/hotdog.html', now=datetime.now())
+
+@app.route('/restaurants/cheburek')
+def cheburek():
+    return render_template('restaurants/cheburek.html', now=datetime.now())
+
+@app.route('/restaurants/pancakes')
+def pancakes():
+    return render_template('restaurants/pancakes.html', now=datetime.now())
+
 @app.route('/restaurants/confectionery')
 def confectionery():
     return render_template('restaurants/confectionery.html', now=datetime.now())
@@ -103,16 +115,6 @@ def confectionery():
 @app.route('/restaurants/donuts')
 def donuts():
     return render_template('restaurants/donuts.html', now=datetime.now())
-
-@app.route('/restaurants/hotdog')
-def hotdog():
-    return render_template('restaurants/hotdog.html', now=datetime.now())
-
-@app.route('/restaurants/pancakes')
-def pancakes():
-    return render_template('restaurants/pancakes.html', now=datetime.now())
-
-
 
 if __name__ == '__main__':
     app.run(debug=True)
