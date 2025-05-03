@@ -1,0 +1,110 @@
+{% extends "base.html" %}
+
+{% block title %}Пельменна | Домашні пельмені ручної ліпки{% endblock %}
+
+{% block content %}
+<section class="restaurant-header" style="background-image: url('{{ url_for('static', filename='images/dumplings/dumplings-bg.jpg') }}')">
+    <div class="header-overlay">
+        <h1>Пельменна</h1>
+        <p>Справжні домашні пельмені за сімейними рецептами - як у дитинстві</p>
+    </div>
+</section>
+
+<section class="menu-section">
+    <div class="container">
+        <h2>Наше меню</h2>
+        
+        <div class="menu-category">
+            <h3>Класичні пельмені</h3>
+            <div class="menu-items">
+                <div class="menu-item">
+                    <div class="item-header">
+                        <h4>Пельмені з м'ясом</h4>
+                        <span class="price">150 грн (250г)</span>
+                    </div>
+                    <p>Свіжий фарш з яловичини та свинини, подаються зі сметаною</p>
+                    <img src="{{ url_for('static', filename='images/dumplings/meat-dumplings.jpg') }}" alt="Пельмені з м'ясом">
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-header">
+                        <h4>Пельмені з куркою</h4>
+                        <span class="price">140 грн (250г)</span>
+                    </div>
+                    <p>Ніжний фарш з курятини з зеленню, подаються з вершковим соусом</p>
+                    <img src="{{ url_for('static', filename='images/dumplings/chicken-dumplings.jpg') }}" alt="Пельмені з куркою">
+                </div>
+            </div>
+        </div>
+
+        <div class="menu-category">
+            <h3>Авторські варіанти</h3>
+            <div class="menu-items">
+                <div class="menu-item">
+                    <div class="item-header">
+                        <h4>Пельмені з лососем</h4>
+                        <span class="price">220 грн (250г)</span>
+                    </div>
+                    <p>Ніжне філе лосося з кропом та лимонним соусом</p>
+                    <img src="{{ url_for('static', filename='images/dumplings/salmon-dumplings.jpg') }}" alt="Пельмені з лососем">
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-header">
+                        <h4>Веганські пельмені</h4>
+                        <span class="price">130 грн (250г)</span>
+                    </div>
+                    <p>Фарш з грибів, сої та моркви з соусом песто</p>
+                    <img src="{{ url_for('static', filename='images/dumplings/vegan-dumplings.jpg') }}" alt="Веганські пельмені">
+                </div>
+            </div>
+        </div>
+
+        <div class="menu-category">
+            <h3>Додатки</h3>
+            <div class="menu-items">
+                <div class="menu-item">
+                    <div class="item-header">
+                        <h4>Холоднець</h4>
+                        <span class="price">120 грн</span>
+                    </div>
+                    <p>Домашній холодець з хроном та гірчицею</p>
+                    <img src="{{ url_for('static', filename='images/dumplings/holodets.jpg') }}" alt="Холоднець">
+                </div>
+
+                <div class="menu-item">
+                    <div class="item-header">
+                        <h4>Соління</h4>
+                        <span class="price">90 грн</span>
+                    </div>
+                    <p>Асорті домашніх солінь: огірки, помідори, капуста</p>
+                    <img src="{{ url_for('static', filename='images/dumplings/pickles.jpg') }}" alt="Соління">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="restaurant-info">
+    <div class="container">
+        <div class="info-block">
+            <h3>Наші особливості</h3>
+            <ul>
+                <li>Ліплені вручную щодня</li>
+                <li>Фарш власного приготування</li>
+                <li>5 видів домашніх соусів</li>
+                <li>Можливість замовити заморожені пельмені додому</li>
+            </ul>
+        </div>
+
+        <div class="info-block">
+            <h3>Години роботи</h3>
+            <p>Понеділок - Неділя: 10:00 - 22:00</p>
+        </div>
+
+        <div class="back-btn">
+            <a href="{{ url_for('restaurants') }}" class="btn">← До всіх закладів</a>
+        </div>
+    </div>
+</section>
+{% endblock %}

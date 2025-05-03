@@ -92,6 +92,10 @@ def georgian():
 def burgers():
     return render_template('restaurants/burgers.html', now=datetime.now())
 
+@app.route('/restaurants/dumplings')
+def dumplings():
+    return render_template('restaurants/dumplings.html', now=datetime.now())
+
 
 
 if __name__ == '__main__':
