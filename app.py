@@ -1,3 +1,4 @@
+import sqlite3
 from datetime import datetime
 
 from flask import Flask, render_template
@@ -52,9 +53,27 @@ news_items = [
 def index():
     return render_template("index.html", now=datetime.now(), map_html=location())
 
+def get_news():
+    conn = sqlite3.connect('news.db')
+    c = conn.cursor()
+    c.execute("SELECT * FROM news ORDER BY date DESC")
+    news_items = [dict(zip(['id', 'title', 'date', 'content', 'image'], row)) for row in c.fetchall()]
+    conn.close()
+    return news_items
+
 @app.route('/news')
 def news():
+    news_items = get_news()
     return render_template('news.html', now=datetime.now(), news_items=news_items)
+
+@app.route('/news/<int:news_id>')
+def news_item(news_id):
+    conn = sqlite3.connect('news.db')
+    c = conn.cursor()
+    c.execute("SELECT * FROM news WHERE id = ?", (news_id,))
+    news_item = dict(zip(['id', 'title', 'date', 'content', 'image'], c.fetchone()))
+    conn.close()
+    return render_template('news_item.html', now=datetime.now(), news_item=news_item)
 
 @app.route('/contacts')
 def contacts():

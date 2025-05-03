@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}{{ news_item.title }} | ODESA STREET FOOD{% endblock %}
+
+{% block content %}
+<section class="news-header">
+    <h1>{{ news_item.title }}</h1>
+    <p class="news-date">{{ news_item.date }}</p>
+</section>
+
+<section class="news-single">
+    <div class="container">
+        <div class="news-image-full">
+            <img src="{{ url_for('static', filename='images/news/' + news_item.image) }}" alt="{{ news_item.title }}">
+        </div>
+        <div class="news-content-full">
+            <p>{{ news_item.content }}</p>
+            <a href="/news" class="btn">← До всіх новин</a>
+        </div>
+    </div>
+</section>
+{% endblock %}
