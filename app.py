@@ -1,8 +1,10 @@
+import os
 import sqlite3
 from datetime import datetime
 
 from flask import Flask, render_template, request, redirect, url_for
 import folium
+from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
 
@@ -90,24 +92,44 @@ def admin_news():
     return render_template('admin_news.html', now=datetime.now(), news_items=news_items)
 
 
+# Конфигурация загрузки файлов
+UPLOAD_FOLDER = 'static/images/news'
+ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+
+
+def allowed_file(filename):
+    return '.' in filename and \
+        filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+
+
 @app.route('/admin/news/add', methods=['GET', 'POST'])
 def add_news():
     if request.method == 'POST':
         title = request.form['title']
         date = request.form['date']
         content = request.form['content']
-        image = request.form['image']
+
+        # Обработка загрузки файла
+        if 'image' not in request.files:
+            return redirect(request.url)
+        file = request.files['image']
+        if file.filename == '':
+            return redirect(request.url)
+        if file and allowed_file(file.filename):
+            filename = secure_filename(file.filename)
+            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
 
         conn = sqlite3.connect('news.db')
         c = conn.cursor()
         c.execute("INSERT INTO news (title, date, content, image) VALUES (?, ?, ?, ?)",
-                  (title, date, content, image))
+                  (title, date, content, filename))
         conn.commit()
         conn.close()
 
         return redirect(url_for('admin_news'))
 
-    return render_template('add_news.html', now=datetime.now())
+    return render_template('add_news.html', now=datetime.now(), today=datetime.now().strftime('%Y-%m-%d'))
 
 
 @app.route('/admin/news/edit/<int:news_id>', methods=['GET', 'POST'])
@@ -119,20 +141,31 @@ def edit_news(news_id):
         title = request.form['title']
         date = request.form['date']
         content = request.form['content']
-        image = request.form['image']
 
-        c.execute("UPDATE news SET title=?, date=?, content=?, image=? WHERE id=?",
-                  (title, date, content, image, news_id))
+        # Обработка загрузки файла
+        filename = None
+        if 'image' in request.files:
+            file = request.files['image']
+            if file.filename != '' and allowed_file(file.filename):
+                filename = secure_filename(file.filename)
+                file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+
+        if filename:
+            c.execute("UPDATE news SET title=?, date=?, content=?, image=? WHERE id=?",
+                      (title, date, content, filename, news_id))
+        else:
+            c.execute("UPDATE news SET title=?, date=?, content=? WHERE id=?",
+                      (title, date, content, news_id))
+
         conn.commit()
         conn.close()
-
         return redirect(url_for('admin_news'))
 
     c.execute("SELECT * FROM news WHERE id=?", (news_id,))
     news_item = dict(zip(['id', 'title', 'date', 'content', 'image'], c.fetchone()))
     conn.close()
 
-    return render_template('edit_news.html', now=datetime.now(), news_item=news_item)
+    return render_template('edit_news.html', now=datetime.now(), news_item=news_item, today=datetime.now().strftime('%Y-%m-%d'))
 
 
 @app.route('/admin/news/delete/<int:news_id>')

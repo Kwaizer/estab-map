@@ -10,27 +10,30 @@
 
 <section class="admin-form">
     <div class="container">
-        <form method="POST">
+        <form method="POST" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="title">Заголовок:</label>
                 <input type="text" id="title" name="title" value="{{ news_item.title }}" required>
             </div>
-            
+
             <div class="form-group">
                 <label for="date">Дата:</label>
-                <input type="text" id="date" name="date" value="{{ news_item.date }}" required>
+                <input type="date" id="date" name="date" value="{{ news_item.date.split(' ')[0] }}" required>
             </div>
-            
+
             <div class="form-group">
                 <label for="content">Зміст:</label>
                 <textarea id="content" name="content" rows="5" required>{{ news_item.content }}</textarea>
             </div>
-            
+
             <div class="form-group">
-                <label for="image">Зображення (ім'я файлу):</label>
-                <input type="text" id="image" name="image" value="{{ news_item.image }}" required>
+                <label>Поточне зображення:</label>
+                <img src="{{ url_for('static', filename='images/news/' + news_item.image) }}" alt="Current image" class="current-image">
+                <label for="image">Нове зображення (залиште пустим, щоб не змінювати):</label>
+                <input type="file" id="image" name="image" accept="image/*">
+                <p class="file-hint">Допустимі формати: JPG, PNG, GIF</p>
             </div>
-            
+
             <button type="submit" class="btn-submit">Оновити</button>
         </form>
     </div>

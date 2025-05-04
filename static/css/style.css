@@ -139,20 +139,31 @@ main {
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
+.admin-form .form-group {
+    margin-bottom: 1.5rem;
+}
+
 .admin-form label {
     display: block;
     margin-bottom: 0.5rem;
     font-weight: bold;
+    color: #333;
 }
 
 .admin-form input[type="text"],
+.admin-form input[type="date"],
 .admin-form textarea {
     width: 100%;
     padding: 0.8rem;
-    margin-bottom: 1rem;
     border: 1px solid #ddd;
     border-radius: 4px;
     font-family: inherit;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.admin-form input[type="date"] {
+    padding: 0.7rem;
 }
 
 .admin-form textarea {
@@ -160,19 +171,44 @@ main {
     resize: vertical;
 }
 
+.admin-form input[type="file"] {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background: #f9f9f9;
+}
+
+.file-hint {
+    font-size: 0.8rem;
+    color: #666;
+    margin-top: 0.3rem;
+}
+
+.current-image {
+    display: block;
+    max-width: 200px;
+    max-height: 150px;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+}
+
+
 .btn-submit {
-    background: #2ecc71;
+    background-color: #ff8c00;
     color: white;
     border: none;
     padding: 0.8rem 1.5rem;
     border-radius: 4px;
     cursor: pointer;
     font-size: 1rem;
-    transition: background 0.3s;
+    transition: background-color 0.3s;
 }
 
 .btn-submit:hover {
-    background: #27ae60;
+    background-color: #e67e00;
 }
 
 /* Герой-секція */
