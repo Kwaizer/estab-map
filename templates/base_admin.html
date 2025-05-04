@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}ODESA STREET FOOD{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    {{ map_css|safe if map_css }}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <header>
+        <h1>ODESA STREET FOOD</h1>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('admin') }}">Головна</a></li>
+                <li><a href="{{ url_for('restaurants') }}">Заклади</a></li>
+                <li><a href="{{ url_for('admin_news') }}">Новини</a></li>
+                <li><a href="{{ url_for('contacts') }}">Контакти</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+</body>
+</html>

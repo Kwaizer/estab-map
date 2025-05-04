@@ -1,7 +1,7 @@
 import sqlite3
 from datetime import datetime
 
-from flask import Flask, render_template
+from flask import Flask, render_template, request, redirect, url_for
 import folium
 
 app = Flask(__name__)
@@ -53,6 +53,10 @@ news_items = [
 def index():
     return render_template("index.html", now=datetime.now(), map_html=location())
 
+@app.route('/admin')
+def admin():
+    return render_template("admin.html", now=datetime.now(), map_html=location())
+
 def get_news():
     conn = sqlite3.connect('news.db')
     c = conn.cursor()
@@ -74,6 +78,71 @@ def news_item(news_id):
     news_item = dict(zip(['id', 'title', 'date', 'content', 'image'], c.fetchone()))
     conn.close()
     return render_template('news_item.html', now=datetime.now(), news_item=news_item)
+
+
+@app.route('/admin/news')
+def admin_news():
+    conn = sqlite3.connect('news.db')
+    c = conn.cursor()
+    c.execute("SELECT * FROM news ORDER BY date DESC")
+    news_items = [dict(zip(['id', 'title', 'date', 'content', 'image'], row)) for row in c.fetchall()]
+    conn.close()
+    return render_template('admin_news.html', now=datetime.now(), news_items=news_items)
+
+
+@app.route('/admin/news/add', methods=['GET', 'POST'])
+def add_news():
+    if request.method == 'POST':
+        title = request.form['title']
+        date = request.form['date']
+        content = request.form['content']
+        image = request.form['image']
+
+        conn = sqlite3.connect('news.db')
+        c = conn.cursor()
+        c.execute("INSERT INTO news (title, date, content, image) VALUES (?, ?, ?, ?)",
+                  (title, date, content, image))
+        conn.commit()
+        conn.close()
+
+        return redirect(url_for('admin_news'))
+
+    return render_template('add_news.html', now=datetime.now())
+
+
+@app.route('/admin/news/edit/<int:news_id>', methods=['GET', 'POST'])
+def edit_news(news_id):
+    conn = sqlite3.connect('news.db')
+    c = conn.cursor()
+
+    if request.method == 'POST':
+        title = request.form['title']
+        date = request.form['date']
+        content = request.form['content']
+        image = request.form['image']
+
+        c.execute("UPDATE news SET title=?, date=?, content=?, image=? WHERE id=?",
+                  (title, date, content, image, news_id))
+        conn.commit()
+        conn.close()
+
+        return redirect(url_for('admin_news'))
+
+    c.execute("SELECT * FROM news WHERE id=?", (news_id,))
+    news_item = dict(zip(['id', 'title', 'date', 'content', 'image'], c.fetchone()))
+    conn.close()
+
+    return render_template('edit_news.html', now=datetime.now(), news_item=news_item)
+
+
+@app.route('/admin/news/delete/<int:news_id>')
+def delete_news(news_id):
+    conn = sqlite3.connect('news.db')
+    c = conn.cursor()
+    c.execute("DELETE FROM news WHERE id=?", (news_id,))
+    conn.commit()
+    conn.close()
+    return redirect(url_for('admin_news'))
 
 @app.route('/contacts')
 def contacts():

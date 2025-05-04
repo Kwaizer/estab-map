@@ -1,0 +1,38 @@
+{% extends "base_admin.html" %}
+
+{% block title %}Редагувати новину | Адмін-панель{% endblock %}
+
+{% block content %}
+<section class="admin-header">
+    <h1>Редагувати новину</h1>
+    <a href="{{ url_for('admin_news') }}" class="btn">Назад до списку</a>
+</section>
+
+<section class="admin-form">
+    <div class="container">
+        <form method="POST">
+            <div class="form-group">
+                <label for="title">Заголовок:</label>
+                <input type="text" id="title" name="title" value="{{ news_item.title }}" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="date">Дата:</label>
+                <input type="text" id="date" name="date" value="{{ news_item.date }}" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="content">Зміст:</label>
+                <textarea id="content" name="content" rows="5" required>{{ news_item.content }}</textarea>
+            </div>
+            
+            <div class="form-group">
+                <label for="image">Зображення (ім'я файлу):</label>
+                <input type="text" id="image" name="image" value="{{ news_item.image }}" required>
+            </div>
+            
+            <button type="submit" class="btn-submit">Оновити</button>
+        </form>
+    </div>
+</section>
+{% endblock %}
