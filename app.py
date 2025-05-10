@@ -1,8 +1,9 @@
 import os
 import sqlite3
 from datetime import datetime
+from functools import wraps
 
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, session, flash
 import folium
 from werkzeug.utils import secure_filename
 
@@ -55,7 +56,49 @@ news_items = [
 def index():
     return render_template("index.html", now=datetime.now(), map_html=location())
 
+app.secret_key = "your_secret_key_here"  # Замените на случайную строку
+
+# Конфигурация аутентификации
+ADMIN_USERNAME = "admin"  # Замените на свои учетные данные
+ADMIN_PASSWORD = "securepassword"  # Замените на свой пароль
+
+
+
+def login_required(f):
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        if "logged_in" not in session:
+            flash("Будь ласка, увійдіть для доступу до цієї сторінки", "error")
+            return redirect(url_for("admin_login"))
+        return f(*args, **kwargs)
+    return decorated_function
+
+
+@app.route("/admin/login", methods=["GET", "POST"])
+def admin_login():
+    if request.method == "POST":
+        username = request.form.get("username")
+        password = request.form.get("password")
+
+        if username == ADMIN_USERNAME and password == ADMIN_PASSWORD:
+            session["logged_in"] = True
+            flash("Ви успішно увійшли", "success")
+            return redirect(url_for("admin"))
+        else:
+            flash("Невірний логін або пароль", "error")
+
+    return render_template("admin_login.html", now=datetime.now())
+
+
+@app.route("/admin/logout")
+def admin_logout():
+    session.pop("logged_in", None)
+    flash("Ви вийшли з системи", "info")
+    return redirect(url_for("admin_login"))
+
+
 @app.route('/admin')
+@login_required
 def admin():
     return render_template("admin.html", now=datetime.now(), map_html=location())
 
