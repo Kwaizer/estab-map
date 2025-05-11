@@ -3,11 +3,30 @@ import sqlite3
 from datetime import datetime
 from functools import wraps
 
+from dotenv import load_dotenv
 from flask import Flask, render_template, request, redirect, url_for, session, flash
 import folium
+from flask_mail import Mail, Message
 from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
+
+app.secret_key = os.getenv('SECRET_KEY') # Замените на случайную строку
+
+# Конфигурация аутентификации
+ADMIN_USERNAME = os.getenv('ADMIN_USERNAME')
+ADMIN_PASSWORD = os.getenv('ADMIN_PASSWORD')
+
+load_dotenv()
+# Настройки для Gmail
+app.config['MAIL_SERVER'] = os.getenv('MAIL_SERVER')
+app.config['MAIL_PORT'] = os.getenv('MAIL_PORT')
+app.config['MAIL_USE_TLS'] = os.getenv('MAIL_USE_TLS')
+app.config['MAIL_USERNAME'] = os.getenv('MAIL_USERNAME')
+app.config['MAIL_PASSWORD'] = os.getenv('MAIL_PASSWORD')
+app.config['MAIL_DEFAULT_SENDER'] = os.getenv('MAIL_DEFAULT_SENDER')
+
+mail = Mail(app)
 
 def location():
     # Координати ресторанного комплексу
@@ -31,37 +50,9 @@ def location():
     # Генерація HTML для мапи
     return odessa_map._repr_html_()
 
-# Приклад даних новин (можна замінити на дані з БД)
-news_items = [
-    {
-        'title': 'Фестиваль вуличної їжі',
-        'date': '15 травня 2023',
-        'content': 'Запрошуємо на великий фестиваль вуличної їжі, де вас чекають смачні страви з усього світу, жива музика та майстер-класи від наших шеф-кухарів.',
-        'image': 'food-festival.jpg'
-    },
-    {
-        'title': 'Нове меню в піцерії',
-        'date': '28 квітня 2023',
-        'content': 'Ми оновили наше меню! Спробуйте нові авторські піци з сезонними інгредієнтами та особливими соусами власного приготування.',
-        'image': 'new-menu.jpg'
-    },
-    {
-        'title': 'Літній майданчик',
-        'date': '1 травня 2023',
-        'content': 'Відкрилися наші літні майданчики з чудовим видом на море. Ідеальне місце для вечірніх зустрічей з друзями.',
-        'image': 'summer-terrace.jpg'
-    }
-]
 @app.route('/')
 def index():
     return render_template("index.html", now=datetime.now(), map_html=location())
-
-app.secret_key = "your_secret_key_here"  # Замените на случайную строку
-
-# Конфигурация аутентификации
-ADMIN_USERNAME = "admin"  # Замените на свои учетные данные
-ADMIN_PASSWORD = "securepassword"  # Замените на свой пароль
-
 
 
 def login_required(f):
@@ -220,8 +211,25 @@ def delete_news(news_id):
     conn.close()
     return redirect(url_for('admin_news'))
 
-@app.route('/contacts')
+@app.route('/contacts', methods=['GET', 'POST'])
 def contacts():
+    if request.method == 'POST':
+        name = request.form['name']
+        email = request.form['email']
+        message_text = request.form['message']
+        print(email)
+        msg = Message(subject="Повідомлення з форми ODESA STREET FOOD",
+                      recipients=['testytestlpambuk@gmail.com'])  # на какой email отправлять
+        msg.body = f"Ім’я: {name}\nEmail: {email}\n\nПовідомлення:\n{message_text}"
+        try:
+            mail.send(msg)
+            flash('Повідомлення успішно надіслано!', 'success')
+        except Exception as e:
+            print("Email error:", e)
+            flash('Сталася помилка при відправленні.', 'error')
+
+        return redirect('/contacts')
+
     return render_template('contacts.html', now=datetime.now(), map_html=location())
 
 @app.route('/restaurants')

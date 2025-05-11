@@ -878,7 +878,33 @@ footer p {
     background: #e67e00;
 }
 
+.info-block {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+
+.info-block h3 {
+    color: #ff8c00;
+    margin-bottom: 1rem;
+    font-size: 1.75rem;
+}
+
+.info-block ul {
+    list-style-type: disc;
+    padding-left: 1.5rem;
+}
+
+.info-block ul li {
+    margin-bottom: 0.5rem;
+    color: #555;
+}
+
+/* Адаптація для мобільних */
 @media (max-width: 768px) {
+
     .admin-news-list table {
         display: block;
         overflow-x: auto;
@@ -923,61 +949,7 @@ footer p {
         border-radius: 4px;
         padding: 0.8rem;
     }
-}
 
-@media (max-width: 768px) {
-    .contacts-header h1 {
-        font-size: 2rem;
-    }
-
-    .contact-info .container {
-        grid-template-columns: 1fr;
-    }
-}
-
-@media (max-width: 768px) {
-    .restaurant-card {
-        flex-direction: column;
-    }
-
-    .restaurant-image {
-        height: 200px;
-    }
-
-    .restaurants-header {
-        padding: 3rem 0;
-    }
-
-    .restaurants-header h1 {
-        font-size: 2rem;
-    }
-}
-.info-block {
-    background: white;
-    padding: 2rem;
-    border-radius: 8px;
-    margin-bottom: 2rem;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-}
-
-.info-block h3 {
-    color: #ff8c00;
-    margin-bottom: 1rem;
-    font-size: 1.75rem;
-}
-
-.info-block ul {
-    list-style-type: disc;
-    padding-left: 1.5rem;
-}
-
-.info-block ul li {
-    margin-bottom: 0.5rem;
-    color: #555;
-}
-
-/* Адаптація для мобільних */
-@media (max-width: 768px) {
     nav ul {
         gap: 1rem;
     }
@@ -1020,6 +992,30 @@ footer p {
     }
 
     .menu-items {
+        grid-template-columns: 1fr;
+    }
+
+        .restaurant-card {
+        flex-direction: column;
+    }
+
+    .restaurant-image {
+        height: 200px;
+    }
+
+    .restaurants-header {
+        padding: 3rem 0;
+    }
+
+    .restaurants-header h1 {
+        font-size: 2rem;
+    }
+
+        .contacts-header h1 {
+        font-size: 2rem;
+    }
+
+    .contact-info .container {
         grid-template-columns: 1fr;
     }
 }
