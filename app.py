@@ -219,7 +219,7 @@ def contacts():
         message_text = request.form['message']
         print(email)
         msg = Message(subject="Повідомлення з форми ODESA STREET FOOD",
-                      recipients=['testytestlpambuk@gmail.com'])  # на какой email отправлять
+                      recipients=['testytestlpambuk@gmail.com'])
         msg.body = f"Ім’я: {name}\nEmail: {email}\n\nПовідомлення:\n{message_text}"
         try:
             mail.send(msg)
